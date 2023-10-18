@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Avatar, Button, List, Skeleton } from 'antd';
-import './style.scss'
+import React, { useEffect, useState } from "react";
+import { Avatar, Button, List, Skeleton } from "antd";
+import "./style.scss";
 const count = 6;
 const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;
 const CustomList = () => {
@@ -25,8 +25,8 @@ const CustomList = () => {
           loading: true,
           name: {},
           picture: {},
-        })),
-      ),
+        }))
+      )
     );
     fetch(fakeDataUrl)
       .then((res) => res.json())
@@ -38,7 +38,7 @@ const CustomList = () => {
         // Resetting window's offsetTop so as to display react-virtualized demo underfloor.
         // In real scene, you can using public method of react-virtualized:
         // https://stackoverflow.com/questions/46700726/how-to-use-public-method-updateposition-of-react-virtualized
-        window.dispatchEvent(new Event('resize'));
+        window.dispatchEvent(new Event("resize"));
       });
   };
   return (
@@ -49,13 +49,18 @@ const CustomList = () => {
       dataSource={list}
       renderItem={(item) => (
         <List.Item
-          actions={[<div key="list-loadmore-edit" className='dollar'>$367</div>]}
+          className="avatar-part"
+          actions={[
+            <div key="list-loadmore-edit" className="dollar">
+              $367
+            </div>,
+          ]}
         >
           <Skeleton avatar title={false} loading={item.loading} active>
             <List.Item.Meta
               avatar={<Avatar src={item.picture.large} />}
               title={<a href="https://ant.design">{item.name?.last}</a>}
-              description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+              description="email@example.com"
             />
           </Skeleton>
         </List.Item>
